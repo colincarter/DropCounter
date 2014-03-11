@@ -13,6 +13,7 @@ void spi_init(void)
 
   // Setup SPI
   UCB0CTL1 |= UCSWRST;
+  UCA0MCTL = 0;
   UCB0CTL0 = UCCKPH | UCMSB | UCMST | UCSYNC;
   UCB0CTL1 |= UCSSEL_2;
   UCB0BR0 |= 0x02;
@@ -23,11 +24,13 @@ void spi_init(void)
 uint8_t spi_transfer(uint8_t data)
 {
   while (!(UC0IFG & UCB0TXIFG)) {
+    LPM0;
   }
 
   UCB0TXBUF = data;
 
   while (!(UC0IFG & UCB0RXIFG)) {
+    LPM0;
   }
 
   return UCB0RXBUF;

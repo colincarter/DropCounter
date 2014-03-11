@@ -32,4 +32,4 @@ install: $(TARGET).elf
 	$(CC) -c $(CFLAGS) -Wa,-anlhd $< > $@
 
 clean:
-	rm -rf $(OBJS) *.lst *.elf *.map
+	rm -rf $(OBJS) *.lst *.elf *.map Debug Release
