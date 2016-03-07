@@ -1,9 +1,5 @@
-*.lst
-*.o
-*.elf
-Debug
-Release
-*.map
-.settings
-.launches
-
+.pioenvs
+.clang_complete
+.gcc-flags.json
+.pioenvs
+.DS_Store
